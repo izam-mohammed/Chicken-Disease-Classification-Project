@@ -1,50 +1,47 @@
-# Ignore compiled files
-*.com
-*.class
-*.dll
-*.exe
-*.o
-*.so
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
 
-# Ignore logs and databases
-*.log
-*.sqlite
-*.db
-
-# Ignore model files and checkpoints
-*.h5
-*.hdf5
-*.pth
-*.ckpt
-*.pt
-
-# Ignore saved model configurations
-model_config.yaml
-model_config.json
-
-# Ignore virtual environment files
-venv/
-env/
-.venv/
-.virtualenv/
-
-# Ignore Jupyter notebook checkpoints
+# Jupyter Notebooks
 .ipynb_checkpoints/
 
-# Ignore system files
+# Virtual Environment
+venv/
+env/
+*.env
+
+# Model artifacts
+*.h5
+*.pkl
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+
+# Compiled Python files
+*.pyc
+*.pyo
+__pycache__/
+
+# Ignore macOS system files
 .DS_Store
+
+# Ignore Windows system files
 Thumbs.db
 
-# Ignore temporary files
-*.tmp
-*.swp
-*~
+# Ignore environment files
+.env
 
-# Ignore IDE and editor-specific files
+# Ignore user-specific IDE settings
 .vscode/
 .idea/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+
+# Ignore any saved editor backups
+*~
+
+# Ignore system-specific temporary files
+*.swp
