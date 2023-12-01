@@ -45,3 +45,6 @@ Thumbs.db
 
 # Ignore system-specific temporary files
 *.swp
+
+artifacts/*
+*.egg-info/*
