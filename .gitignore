@@ -1,0 +1,50 @@
+# Ignore compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Ignore logs and databases
+*.log
+*.sqlite
+*.db
+
+# Ignore model files and checkpoints
+*.h5
+*.hdf5
+*.pth
+*.ckpt
+*.pt
+
+# Ignore saved model configurations
+model_config.yaml
+model_config.json
+
+# Ignore virtual environment files
+venv/
+env/
+.venv/
+.virtualenv/
+
+# Ignore Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore temporary files
+*.tmp
+*.swp
+*~
+
+# Ignore IDE and editor-specific files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
