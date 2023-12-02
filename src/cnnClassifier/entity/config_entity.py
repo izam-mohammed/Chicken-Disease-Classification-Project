@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from pathlib import Path
 
+
 @dataclass(frozen=True)
 class DataIngestionConfig:
     root_dir: Path
@@ -20,11 +21,13 @@ class PrepareBaseModelConfig:
     params_weights: str
     params_classes: int
 
+
 @dataclass(frozen=True)
 class PrepareCallbacksConfig:
     root_dir: Path
     tensorboard_root_log_dir: Path
     checkpoint_model_filepath: Path
+
 
 @dataclass(frozen=True)
 class TrainingConfig:
@@ -36,6 +39,7 @@ class TrainingConfig:
     params_batch_size: int
     params_is_augmentation: bool
     params_image_size: list
+
 
 @dataclass(frozen=True)
 class EvaluationConfig:
