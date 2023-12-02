@@ -6,7 +6,7 @@ from cnnClassifier.entity.config_entity import (DataIngestionConfig,
                                                 PrepareCallbacksConfig,
                                                 TrainingConfig)
 
-class CofigurationManager:
+class ConfigurationManager:
     def __init__(
         self,
         config_filepath = CONFIG_FILE_PATH,

@@ -4,7 +4,7 @@ from zipfile import ZipFile
 import tensorflow as tf
 import time
 
-from cnnClassifier.entity.config_entity import PrepareCallbackConfig
+from cnnClassifier.entity.config_entity import PrepareCallbacksConfig
 
 class PrepareCallback:
     def __init__(self, config: PrepareCallbacksConfig):

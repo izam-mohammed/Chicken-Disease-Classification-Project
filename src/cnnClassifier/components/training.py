@@ -1,5 +1,5 @@
 from cnnClassifier.entity.config_entity import TrainingConfig
-import tensoorflow as tf
+import tensorflow as tf
 from pathlib import Path
 
 
