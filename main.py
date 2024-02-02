@@ -6,7 +6,7 @@ from cnnClassifier.pipeline.stage_04_evaluation import EvaluationPipeline
 
 def run_pipeline(stage_name, pipeline_instance):
     """
-    Run a specific stage of the sentiment analysis pipeline.
+    Run a specific pipeline.
 
     Parameters:
     - stage_name: str
