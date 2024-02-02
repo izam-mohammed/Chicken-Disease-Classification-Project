@@ -3,29 +3,31 @@ from cnnClassifier.components.evaluation import Evaluation
 from cnnClassifier import logger
 
 
-STAGE_NAME = "Evaluation stage"
-
-
 class EvaluationPipeline:
-    def __init__(self):
+    """
+    An evaluation pipeline for the model.
+
+    Methods:
+        __init__: Initializes the EvaluationPipeline object.
+        main: Executes the main steps for model evaluation, including obtaining the validation configuration,
+              performing evaluation, and saving the evaluation score.
+    """
+    def __init__(self) -> None:
+        """
+        Initializes the EvaluationPipeline object.
+        """
         pass
 
-    def main(self):
+    def main(self) -> None:
+        """
+        Executes the main steps for model evaluation, including obtaining the validation configuration,
+        performing evaluation, and saving the evaluation score.
+
+        Returns:
+            None
+        """
         config = ConfigurationManager()
         val_config = config.get_validation_config()
         evaluation = Evaluation(val_config)
         evaluation.evaluation()
         evaluation.save_score()
-
-
-if __name__ == "__main__":
-    try:
-        logger.info("*********************")
-        logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
-        obj = EvaluationPipeline()
-        obj.main()
-        logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
-
-    except Exception as e:
-        logger.exception(e)
-        raise e

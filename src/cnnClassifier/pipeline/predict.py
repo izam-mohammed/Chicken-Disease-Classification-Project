@@ -2,15 +2,37 @@ import numpy as np
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 import os
+from typing import List, Dict
 
 
 class PredictionPipeline:
-    def __init__(self, filename):
+    """
+    A pipeline for making predictions on input images using a pre-trained model.
+
+    Args:
+        filename (str): The filename of the input image.
+
+    Methods:
+        __init__: Initializes the PredictionPipeline object.
+        predict: Takes an image and returns the prediction as a list of dictionaries.
+
+    """
+    def __init__(self, filename:str) -> None:
+        """
+        Initializes the PredictionPipeline object.
+
+        Args:
+            filename (str): The filename of the input image.
+        """
         self.filename = filename
 
-    def predict(self):
+    def predict(self) -> List[dict[str, str]]:
         """
-        A method that take image and return the prediction
+        Takes an image and returns the prediction as a list of dictionaries.
+
+        Returns:
+            A list containing a dictionary with the prediction for the input image.
+            The dictionary has a single key "image" with the corresponding prediction value.
         """
 
         # load model

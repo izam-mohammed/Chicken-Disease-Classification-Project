@@ -11,9 +11,31 @@ from cnnClassifier.entity.config_entity import (
 
 
 class ConfigurationManager:
+    """
+    A class for managing configuration settings related to the components.
+
+    Attributes:
+        config_filepath (str): File path for the main configuration file.
+        params_filepath (str): File path for the parameters file.
+
+    Methods:
+        __init__: Initializes the ConfigurationManager object.
+        get_data_ingestion_config: Returns data in the format of DataIngestionConfig from the config.yaml file.
+        get_prepare_base_model_config: Returns data as PrepareBaseModelConfig.
+        get_prepare_callback_config: Returns a PrepareCallbackConfig data type of the configuration of callbacks.
+        get_training_config: Returns the configuration for training the model.
+        get_validation_config: Returns an evaluation config data object.
+    """
     def __init__(
         self, config_filepath=CONFIG_FILE_PATH, params_filepath=PARAMS_FILE_PATH
-    ):
+    ) -> None:
+        """
+        Initializes the ConfigurationManager object.
+
+        Args:
+            config_filepath (str, optional): File path for the main configuration file. Defaults to CONFIG_FILE_PATH.
+            params_filepath (str, optional): File path for the parameters file. Defaults to PARAMS_FILE_PATH.
+        """
         self.config = read_yaml(config_filepath)
         self.params = read_yaml(params_filepath)
 
@@ -21,7 +43,10 @@ class ConfigurationManager:
 
     def get_data_ingestion_config(self) -> DataIngestionConfig:
         """
-        return data in the format of DataIngestionConfig from config.yaml file
+        Retrieves the data ingestion configuration.
+
+        Returns:
+            DataIngestionConfig: Object containing data ingestion configuration settings.
         """
         config = self.config.data_ingestion
 
@@ -38,7 +63,11 @@ class ConfigurationManager:
 
     def get_prepare_base_model_config(self) -> PrepareBaseModelConfig:
         """
-        returns the data as PrepareBaseModelConfig data
+        Retrieves the configuration for preparing a base model.
+
+        Returns:
+            PrepareBaseModelConfig: Object containing the configuration for preparing a base model.
+
         """
         config = self.config.prepare_base_model
 
@@ -59,7 +88,10 @@ class ConfigurationManager:
 
     def get_prepare_callback_config(self) -> PrepareCallbacksConfig:
         """
-        Returns a PrepareCallbackConfig data type of the configuration of callbacks
+        Retrieves the configuration for preparing callbacks.
+
+        Returns:
+            PrepareCallbacksConfig: Object containing the configuration for callbacks.
         """
         config = self.config.prepare_callbacks
         model_ckpt_dir = os.path.dirname(config.checkpoint_model_filepath)
@@ -76,6 +108,12 @@ class ConfigurationManager:
         return prepare_callback_config
 
     def get_training_config(self) -> TrainingConfig:
+        """
+        Retrieves the configuration for training.
+
+        Returns:
+            TrainingConfig: Object containing the configuration for training.
+        """
         training = self.config.training
         prepare_base_model = self.config.prepare_base_model
         params = self.params
@@ -99,7 +137,10 @@ class ConfigurationManager:
 
     def get_validation_config(self) -> EvaluationConfig:
         """
-        Returns a evaluation config data object
+        Returns an evaluation config data object.
+
+        Returns:
+            EvaluationConfig: Object containing the configuration for model evaluation.
         """
         eval_config = EvaluationConfig(
             path_of_model="artifacts/training/model.h5",

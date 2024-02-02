@@ -3,15 +3,29 @@ from cnnClassifier.components.prepare_callbacks import PrepareCallback
 from cnnClassifier.components.training import Training
 from cnnClassifier import logger
 
-
-STAGE_NAME = "Training"
-
-
 class ModelTrainingPipeline:
-    def __init__(self):
+    """
+    A training pipeline for the model.
+
+    Methods:
+        __init__: Initializes the ModelTrainingPipeline object.
+        main: Executes the main steps for model training, including preparing callbacks, obtaining the base model,
+              and training the model with generators.
+    """
+    def __init__(self) -> None:
+        """
+        Initializes the ModelTrainingPipeline object.
+        """
         pass
 
-    def main(self):
+    def main(self) -> None:
+        """
+        Executes the main steps for model training, including preparing callbacks, obtaining the base model,
+        and training the model with generators.
+
+        Return:
+            None
+        """
         config = ConfigurationManager()
         prepare_callbacks_config = config.get_prepare_callback_config()
         prepare_callbacks = PrepareCallback(config=prepare_callbacks_config)
@@ -22,15 +36,3 @@ class ModelTrainingPipeline:
         training.get_base_model()
         training.train_valid_generator()
         training.train(callback_list=callback_list)
-
-
-if __name__ == "__main__":
-    try:
-        logger.info(f"*******************")
-        logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
-        obj = ModelTrainingPipeline()
-        obj.main()
-        logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
-    except Exception as e:
-        logger.exception(e)
-        raise e
